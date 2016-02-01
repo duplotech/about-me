@@ -1,0 +1,31 @@
+{
+  "name": "about-me",
+  "version": "0.0.1",
+  "description": "sebinsua.com about me page",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "postinstall": "npm run build",
+    "start": "next start -p ${PORT:-5000}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/duplotech/about-me.git"
+  },
+  "keywords": [
+    "about"
+  ],
+  "author": "Seb Insua <me@sebinsua.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duplotech/about-me/issues"
+  },
+  "homepage": "https://github.com/duplotech/about-me#readme",
+  "dependencies": {
+    "next": "latest",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "styled-components": "^1.4.4"
+  }
+}
