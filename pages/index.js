@@ -23,7 +23,15 @@ const Header = styled.header`
   display: flex;
   flex-direction: row-reverse;
   height: 108px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 10px;
+  }
 
   opacity: 0;
 
@@ -68,6 +76,16 @@ const Content = styled.div`
   flex-grow: 0;
   flex-basis: 50%;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    flex-grow: initial;
+    flex-basis: initial;
+    padding: 1em;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5em;
+  }
 
   h3 {
     line-height: 1.4em;
