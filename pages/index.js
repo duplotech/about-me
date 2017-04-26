@@ -14,7 +14,7 @@ injectGlobal`
   }
 `
 
-const Article = styled.article`
+const PageWrapper = styled.article`
   margin: 0 auto;
   max-width: 42em;
 `
@@ -25,6 +25,12 @@ const Header = styled.header`
   height: 108px;
   margin-bottom: 50px;
 
+  opacity: 0;
+  &:hover {
+    transition: opacity 0.75s ease-in-out;
+    opacity: 1;
+  }
+
   @media (max-width: 768px) {
     margin-bottom: 30px;
   }
@@ -32,43 +38,36 @@ const Header = styled.header`
   @media (max-width: 480px) {
     margin-bottom: 10px;
   }
-
-  opacity: 0;
-
-  &:hover {
-    transition: opacity 0.75s ease-in-out;
-    opacity: 1;
-  }
 `
 
-const List = styled.ul`
+const HeaderActions = styled.ul`
   align-self: center;
-`
 
-const Item = styled.li`
-  list-style-type: none;
-  display: inline-block;
-  font-size: 1em;
-  margin-left: 0.5em;
-`
+  li {
+    list-style-type: none;
+    display: inline-block;
+    font-size: 1em;
+    margin-left: 0.5em;
 
-const Link = styled.a`
-  color: #000;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
+    a {
+      color: #000;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
 
-  &:hover {
-    background-color: #fdf9ec;
+      &:hover {
+        background-color: #fdf9ec;
+      }
+    }
   }
 `
 
-const Box = styled.div`
+const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 `
 
-const Content = styled.div`
+const Pitch = styled.div`
   background: linear-gradient(100deg, #FF9269 15%,  #F76631 35%, #1778E9);
   background-clip: text;
   -webkit-background-clip: text;
@@ -76,6 +75,21 @@ const Content = styled.div`
   flex-grow: 0;
   flex-basis: 50%;
   text-decoration: none;
+
+  h3 {
+    line-height: 1.4em;
+  }
+  .intention {
+    font-size: 1.15em;
+    line-height: 1.4em;
+  }
+  abbr {
+    cursor: help;
+    text-decoration: none;
+  }
+  strong {
+    color: transparent;
+  }
 
   @media (max-width: 768px) {
     flex-grow: initial;
@@ -86,58 +100,38 @@ const Content = styled.div`
   @media (max-width: 480px) {
     padding: 0.5em;
   }
+`
 
-  h3 {
-    line-height: 1.4em;
-  }
-  .intention {
-    font-size: 1.15em;
-    line-height: 1.4em;
-  }
+const Action = styled.a`
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  text-decoration: none;
 
-  abbr {
-    cursor: help;
-    text-decoration: none;
-  }
-  a {
-    text-decoration: none;
-    color: transparent;
-  }
-  strong {
-    color: transparent;
-  }
-
-  .actions a {
-    color: #000;
-    border-bottom: 1px solid #ccc;
-
-    &:hover {
-      background-color: #fdf9ec;
-    }
+  &:hover {
+    background-color: #fdf9ec;
   }
 `
 
 export default () => (
-  <Article>
+  <PageWrapper>
     <Header>
-      <List>
-        <Item>
-          <Link href='http://github.com/sebinsua'>GitHub</Link>
-        </Item>
-        <Item>
-          <Link href='http://twitter.com/sebinsua'>@sebinsua</Link>
-        </Item>
-        <Item>
-          <Link href='http://hire.duplo.tech'>~</Link>
-        </Item>
-        <Item>
-          <Link href='http://duplo.tech'>ℬ</Link>
-        </Item>
-      </List>
+      <HeaderActions>
+        <li>
+          <a href='http://github.com/sebinsua'>GitHub</a>
+        </li>
+        <li>
+          <a href='http://twitter.com/sebinsua'>@sebinsua</a>
+        </li>
+        <li>
+          <a href='http://hire.duplo.tech'>~</a>
+        </li>
+        <li>
+          <a href='http://duplo.tech'>ℬ</a>
+        </li>
+      </HeaderActions>
     </Header>
-    <Box>
-      <Content />
-      <Content>
+    <MainWrapper>
+      <Pitch>
         <h3>
           I'm{' '}
           <strong>Seb Insua</strong>,
@@ -155,18 +149,22 @@ export default () => (
         <p>
           Knowing when not to solve a problem is as important as knowing how to solve it.
         </p>
-        <p className='actions'>
-          <a href='mailto:me@sebinsua.com'>Say hi</a>
+        <p>
+          <Action href='mailto:me@sebinsua.com'>Say hi</Action>
           ,
           read{' '}
-          <a href='http://duplo.tech'>one of my essays</a>
+          <Action href='http://duplo.tech'>one of my essays</Action>
           ,
           look at my
           {' '}
-          <a href='http://github.com/sebinsua'>GitHub</a>{' '}
-          and <a href='http://twitter.com/sebinsua'>follow me on Twitter</a>.
+          <Action href='http://github.com/sebinsua'>GitHub</Action>{' '}
+          and{' '}
+          <Action href='http://twitter.com/sebinsua'>
+            follow me on Twitter
+          </Action>
+          .
         </p>
-      </Content>
-    </Box>
-  </Article>
+      </Pitch>
+    </MainWrapper>
+  </PageWrapper>
 )
