@@ -61,7 +61,42 @@ const Box = styled.div`
 `
 
 const Content = styled.div`
+  background: linear-gradient(100deg, #FF9269 15%,  #F76631 35%, #1778E9);
+  background-clip: text;
+  -webkit-background-clip: text;
 
+  flex-grow: 0;
+  flex-basis: 50%;
+  text-decoration: none;
+
+  h3 {
+    line-height: 1.4em;
+  }
+  .intention {
+    font-size: 1.15em;
+    line-height: 1.4em;
+  }
+
+  abbr {
+    cursor: help;
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+    color: transparent;
+  }
+  strong {
+    color: transparent;
+  }
+
+  .actions a {
+    color: #000;
+    border-bottom: 1px solid #ccc;
+
+    &:hover {
+      background-color: #fdf9ec;
+    }
+  }
 `
 
 export default () => (
@@ -83,11 +118,36 @@ export default () => (
       </List>
     </Header>
     <Box>
+      <Content />
       <Content>
-        <em>I am currently available for work.</em>
-      </Content>
-      <Content>
-        Hey! I'm <strong>Seb Insua</strong>, a full-stack engineer.
+        <h3>
+          I'm{' '}
+          <strong>Seb Insua</strong>,
+          {' '}
+          a consultant software engineer based in{' '}
+          <abbr title='London, United Kingdom'>London</abbr>
+          .
+        </h3>
+        <p className='intention'>
+          I like to advise on how to maximise{' '}
+          <strong>technical leverage</strong>
+          {' '}while reducing exposure to{' '}
+          <strong>execution costs</strong>.
+        </p>
+        <p>
+          Knowing when not to solve a problem is as important as knowing how to solve it.
+        </p>
+        <p className='actions'>
+          <a href='mailto:me@sebinsua.com'>Say hi</a>
+          ,
+          read{' '}
+          <a href='http://duplo.tech'>one of my essays</a>
+          ,
+          look at my
+          {' '}
+          <a href='http://github.com/sebinsua'>GitHub</a>{' '}
+          and <a href='http://twitter.com/sebinsua'>follow me on Twitter</a>.
+        </p>
       </Content>
     </Box>
   </Article>
